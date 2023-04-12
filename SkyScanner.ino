@@ -89,7 +89,16 @@ void loop()
 {
 // put your main code here, to run repeatedly:
 int signalval= analogRead(A0);
-for (Panval=0; Panval<=180; Panval++ )
+for (Tiltval=0; Tiltval<=180; Tiltval++)
+{
+  Tiltservo.write(Tiltval);
+  Serial.print("Pan Angle : ");
+  Serial.println(Panval);
+  Serial.print("Tilt Angle : ");
+  Serial.println(Tiltval);
+  Serial.print("Signalval : ");
+  sensorval();
+for (Panval=0; Panval<=360; Panval++ )
 {
   Panservo.write(Panval);
   Serial.print("Pan Angle : ");
@@ -102,7 +111,8 @@ for (Panval=0; Panval<=180; Panval++ )
 //  Serial.println("");
   delay(100);
 }
-for (Panval>=180; Tiltval<=180; Tiltval++)
+}
+for (Tiltval=180; Tiltval>=0; Tiltval--)
 {
   Tiltservo.write(Tiltval);
   Serial.print("Pan Angle : ");
@@ -111,11 +121,7 @@ for (Panval>=180; Tiltval<=180; Tiltval++)
   Serial.println(Tiltval);
   Serial.print("Signalval : ");
   sensorval();
-//  Serial.println(signalval);
-//  Serial.println("");
-  delay(10);
-  }
-for (Panval<=180-1; Panval>=0; Panval++ )
+for (Panval=360; Panval>=0; Panval-- )
 {
   Panservo.write(Panval);
   Serial.print("Pan Angle : ");
@@ -126,45 +132,7 @@ for (Panval<=180-1; Panval>=0; Panval++ )
   sensorval();
 //  Serial.println(signalval);
 //  Serial.println("");
-  delay(10);
+  delay(100);
 }
-for (Tiltval<=180-1; Tiltval>=0; Tiltval++ )
-{
-  Tiltservo.write(Tiltval);
-  Serial.print("Pan Angle : ");
-  Serial.println(Panval);
-  Serial.print("Tilt Angle : ");
-  Serial.println(Tiltval);
-  Serial.print("Signalval : ");
-  sensorval();
-//  Serial.println(signalval);
-//  Serial.println("");
-  delay(10);
-}
-for (Panval<=180; Panval>=0; Panval-- )
-{
-  Panservo.write(Panval);
-  Serial.print("Pan Angle : ");
-  Serial.println(Panval);
-  Serial.print("Tilt Angle : ");
-  Serial.println(Tiltval);
-  Serial.print("Signalval : ");
-  sensorval();
-//  Serial.println(signalval);
-//  Serial.println("");
-  delay(10);
-}
-for (Tiltval<=180; Tiltval>=0; Tiltval-- )
-{
-  Tiltservo.write(Tiltval);
-  Serial.print("Pan Angle : ");
-  Serial.println(Panval);
-  Serial.print("Tilt Angle : ");
-  Serial.println(Tiltval);
-  Serial.print("Signalval : ");
-  sensorval();
-//  Serial.println(signalval);
-//  Serial.println("");
-  delay(10);
 }
 }
